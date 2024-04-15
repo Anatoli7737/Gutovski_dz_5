@@ -44,6 +44,7 @@ def get_ranges(lst):
 
     # Объединим все элементы списка ranges в одну строку, разделенную запятыми и пробелами, и возвращаем эту строку
     return ", ".join(ranges)
+    # Решение ок, замечаний нет.
 
 
 # Написать функцию standardise_phones которая принимает любое
@@ -85,7 +86,7 @@ def standardise_phones(*args):
     standardized_phones = [standardise_phone(str(phone)) for phone in args]
     # Возвращается список стандартизированных номеров, исключая None
     return [phone for phone in standardized_phones if phone]
-
+    # Решение рабочее, тесты оно успешно проходит, есть более универсальное, см ответы
 
 # Создайте декоратор handle_multiples который позволит функции rope_product
 # вернуть лиш один ответ если задано одно число и много ответов списком если
@@ -106,6 +107,7 @@ def handle_multiples(func):
             return [func(arg) for arg in args]
     # Наконец, функция handle_multiples возвращает внутреннюю функцию wrapper в качестве результата
     return wrapper
+    # Декторатор верный
 
 
 @handle_multiples
@@ -121,6 +123,7 @@ def rope_product(n):
         return int(math.pow(3, num_threes) * remainder)
     else:
         raise ValueError("Ввод должен быть целым числом")
+        # Решение ок
 
 
 # Создайте функцию rope_product, которая берёт позитивный цельный номер,
@@ -155,3 +158,4 @@ def rope_product(n):
         remainder = 4
     # Возвращаем результат умножения трех в степени num_threes на остаток remainder
     return int(math.pow(3, num_threes) * remainder)
+    # Решение тоже ок, но должно быть одно решение этой задачи и для задачи с веревкой и для задачи с декотором. Тесты с декоторатом не проходит
